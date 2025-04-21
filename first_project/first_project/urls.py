@@ -16,13 +16,12 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
-from django.conf.urls import include  # Import include to include other URL configurations
+from django.urls import path,include  # Import include to include other URL configurations
 from first_app import views
 
 urlpatterns = [
     path('', views.index, name='index'),  # Add this line for the index view
-    path(r'^mynew extension/',include('first_app.urls')),  # Add this line for the first_app view
+    path('mynew extension/',include('first_app.urls')),  # Add this line for the first_app view
     path('admin/', admin.site.urls),
 ]
 
