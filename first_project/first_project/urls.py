@@ -20,10 +20,12 @@ from django.urls import path,include  # Import include to include other URL conf
 from first_app import views
 from django.conf import settings
 from django.conf.urls.static import static
+from first_app import views
 
 urlpatterns = [
-    # path('', views.index, name='index'),  # Add this line for the index view
+    path('', views.index, name='index'),  # Add this line for the index view
     path('',include('first_app.urls')),  # Add this line for the first_app view
     path('admin/', admin.site.urls),
+    path('formpage/', views.form_name_view, name='form_name'),  # Add this line for the form view
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
