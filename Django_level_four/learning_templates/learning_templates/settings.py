@@ -136,3 +136,5 @@ MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/basic_app/user_login/' #this is the URL that the user will be redirected to when they try to access a page that requires authentication

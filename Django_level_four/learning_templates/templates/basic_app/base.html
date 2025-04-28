@@ -15,6 +15,16 @@
           <li><a class="navbar-brand" href="{% url 'index' %}">Django</a></li>
           <li><a class="navbar-link" href="{% url 'admin:index' %}"> Admin </a></li>
           <li><a class="navbar-link" href="{% url 'basic_app:register' %}"> Register </a></li>
+          {% if user.is_authenticated %}
+          <li><a class="navbar-link" href="{% url 'logout' %}"> Logout </a></li>
+          {% elif %}
+          <li><a class="navbar-link" href="{% url 'basic_app:user_login' %}"> login </a></li>
+          {% elif %}
+          <li><a class="navbar-link" href="{% url 'basic_app:user_login' %}"> login </a></li>
+          {% endif %}
+
+          
+
         </ul>
       </div>
       
