@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404,redirect
 from blog.models import Post, comment
 from blog.forms import PostForm, commentForm
 from django.urls import reverse_lazy
@@ -47,3 +47,39 @@ class DraftListView(LoginRequiredMixin,ListView):
     def get_queryset(self):
         return Post.objects.filter(published_date__isnull=True).order_by('created_date')  # Filter for drafts only    
     
+#######################################
+@login_required
+def post_publish(request,pk): # Publish a post
+    post = get_object_or_404(Post, pk=pk) # Get the post object or return a 404 error if not found
+    post.publish()
+    return redirect('post_detail', pk=pk)
+
+@login_required
+def add_comment_to_post(request,pk):
+    post = get_object_or_404(Post, pk=pk)  # Get the post object or return a 404 error if not found
+    if request.method == 'POST':
+        form = commentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)  # Create a comment object but don't save it to the database yet
+            comment.post = post  # Associate the comment with the post
+            comment.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = commentForm()
+    return render(request, 'blog/comment_form.html', {'form': form})    
+@login_required
+def comment_approve(request,pk):
+    comment = get_object_or_404(comment, pk=pk)
+    comment.approve()
+    return redirect('post_detail', pk=comment.post.pk)
+
+login_required
+def comment_remove(request,pk):
+    comment = get_object_or_404(comment, pk=pk)
+    post_pk = comment.post.pk  # Store the post's primary key before deleting the comment
+    comment.delete()  # Delete the comment
+    return redirect('post_detail', pk=post_pk)  # Redirect to the post detail page after deletion
+
+
+
+
