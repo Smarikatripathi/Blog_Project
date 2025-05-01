@@ -9,10 +9,13 @@ from django.views.generic import (TemplateView,ListView, DetailView, CreateView,
 # Create your views here.
 
 class AboutView(TemplateView):
-    template_name = 'about.html'
+    template_name = 'blog/about.html'
 
 class PostListView(ListView):
     model = Post
+    template_name = 'blog/post_list.html'
+    context_object_name = 'post_list'
+    
 
     def get_queryset(self):
         return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')

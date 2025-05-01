@@ -13,7 +13,7 @@ urlpatterns = [
     path('comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),  # URL for approving a comment
     path('comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),  # URL for removing a comment
     path('post/<int:pk>/publish/', views.post_publish, name='post_publish'),  # URL for publishing a post
-
+    
 
 
 ]

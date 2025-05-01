@@ -45,8 +45,11 @@
           <a href="{% url 'post_draft_list' %}">Drafts</a>
         </li>
         <li>
-          <a href="{% url 'logout' %}" >Log out</a>
-        </li>
+        <form method="POST" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit">Logout</button>
+      </form>
+    </li>
 
         <li>
           <a >Welcome: {{ user.username }}</a>
