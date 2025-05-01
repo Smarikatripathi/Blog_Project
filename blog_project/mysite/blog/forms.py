@@ -1,5 +1,5 @@
 from django import forms
-from blog.models import Post, comment
+from blog.models import Post, Comment
 
 class PostForm(forms.ModelForm): # Form for creating and editing posts
     class Meta:
@@ -13,9 +13,10 @@ class PostForm(forms.ModelForm): # Form for creating and editing posts
 
         }         
 
-class commentForm(forms.ModelForm): # Form for creating and editing comments
+class CommentForm(forms.ModelForm): 
+ # Form for creating and editing comments
     class Meta:
-        model = comment
+        model = Comment
         fields = ('author', 'text') # Fields to include in the form  
 
         widgets = {

@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('blog.urls')),  # Include the blog app's URLs
     path('accounts/login/', views.LoginView.as_view(), name='login'),  # URL for login page 
-    path('accounts/logout/', views.LogoutView.as_view(), name='logout',kwargs={'next_page'}),  # URL for logout page 
+    path('accounts/logout/', views.LogoutView.as_view(), name='logout', kwargs={'next_page': 'some_url'}),
+ # URL for logout page 
 
 ]
