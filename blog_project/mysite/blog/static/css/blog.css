@@ -4,6 +4,27 @@
   margin-bottom: 10px;
 }
 
+.navbar-nav.navbar-right li form {
+  display: inline-block;    /* keep it inline with the links */
+  margin-top: 3px;          /* push it down a bit */
+}
+
+/* And ensure the button itself has consistent padding */
+.navbar-nav.navbar-right li form button {
+  padding: 8px 8px;        /* match your nav-link vertical rhythm */
+  line-height: 1.1;         /* align text vertically */
+  background: transparent;
+  border: none;   /* remove default button look if desired */
+  color: rgb(68, 68, 68);              /* match your nav link color */
+  font-size: 1.1em;
+}
+
+/* On hover, you can still give feedback: */
+.navbar-nav.navbar-right li form button:hover {
+  background-color: rgb(111, 215, 139);
+}
+
+
 .postdate{
   text-align: center;
 }
@@ -71,3 +92,6 @@
   100%{filter:hue-rotate(360deg);}
 
 }
+
+
+ 
