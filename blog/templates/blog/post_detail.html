@@ -1,0 +1,97 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+  <div class="card shadow-lg p-4">
+
+    <!-- TITLE -->
+    <h2 class="mb-3">{{ post.title }}</h2>
+
+    <!-- DATE / PUBLISH -->
+    {% if post.published_date %}
+      <p class="text-muted">
+        Published: {{ post.published_date|date:"D M Y H:i" }}
+      </p>
+    {% else %}
+      <a class="btn btn-success mb-3" href="{% url 'post_publish' pk=post.pk %}">
+        🚀 Publish
+      </a>
+    {% endif %}
+
+    <!-- CONTENT -->
+    <p class="mt-3" style="line-height:1.7;">
+      {{ post.text|safe|linebreaksbr }}
+    </p>
+
+    <!-- EDIT / DELETE -->
+    {% if user.is_authenticated %}
+    <div class="mt-4 d-flex gap-2">
+
+      <a href="{% url 'post_edit' pk=post.pk %}" class="btn btn-outline-primary">
+        ✏️ Edit
+      </a>
+
+      <a href="{% url 'post_remove' pk=post.pk %}" class="btn btn-outline-danger">
+        🗑 Delete
+      </a>
+
+    </div>
+    {% endif %}
+
+    <hr>
+
+    <!-- COMMENT BUTTON -->
+    <a href="{% url 'add_comment_to_post' pk=post.pk %}" 
+       class="btn btn-primary mb-3">
+       💬 Add Comment
+    </a>
+
+    <!-- COMMENTS -->
+    <div class="mt-3">
+
+      {% for comment in post.comments.all %}
+
+        {% if user.is_authenticated or comment.approved_comment %}
+
+        <div class="card mb-3 p-3 shadow-sm">
+
+          <p class="text-muted small">
+            {{ comment.created_date|date:"D M Y H:i" }}
+          </p>
+
+          <p>{{ comment.text|safe|linebreaks }}</p>
+
+          <p class="mb-1">
+            Posted by: <strong>{{ comment.author }}</strong>
+          </p>
+
+          {% if not comment.approved_comment and user.is_authenticated %}
+          <div class="mt-2 d-flex gap-2">
+
+            <a href="{% url 'comment_approve' pk=comment.pk %}" 
+               class="btn btn-success btn-sm">
+               ✔ Approve
+            </a>
+
+            <a href="{% url 'comment_remove' pk=comment.pk %}" 
+               class="btn btn-danger btn-sm">
+               🗑 Remove
+            </a>
+
+          </div>
+          {% endif %}
+
+        </div>
+
+        {% endif %}
+
+      {% empty %}
+        <p>No comments posted.</p>
+      {% endfor %}
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

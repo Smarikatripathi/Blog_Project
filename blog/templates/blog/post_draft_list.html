@@ -1,0 +1,54 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<h2 class="text-center my-4">📝 Draft Posts</h2>
+
+<div class="row">
+
+  {% for post in post_list %}
+
+  <div class="col-md-6 mb-4">
+    <div class="card border-warning shadow-sm h-100">
+
+      <div class="card-body">
+
+        <span class="badge bg-warning text-dark mb-2">Draft</span>
+
+        <h4 class="card-title">
+          <a href="{% url 'post_detail' pk=post.pk %}" class="text-decoration-none text-dark">
+            {{ post.title }}
+          </a>
+        </h4>
+
+        <p class="text-muted small">
+          Created: {{ post.created_date|date:'d M Y' }}
+        </p>
+
+        <p class="card-text">
+          {{ post.text|truncatechars:120 }}
+        </p>
+
+      </div>
+
+      <div class="card-footer bg-white border-0 d-flex justify-content-between">
+
+        <a href="{% url 'post_edit' pk=post.pk %}" class="btn btn-outline-secondary btn-sm">
+          Edit
+        </a>
+
+        <a href="{% url 'post_publish' pk=post.pk %}" class="btn btn-success btn-sm">
+          🚀 Publish
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+  {% empty %}
+    <p class="text-center">No drafts available.</p>
+  {% endfor %}
+
+</div>
+
+{% endblock %}

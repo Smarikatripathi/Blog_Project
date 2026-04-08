@@ -1,0 +1,325 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f7fb;
+  color: #2d2d2d;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth text rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================
+ NAVBAR
+========================= */
+
+.navbar {
+  background: linear-gradient(135deg, #1f2937, #111827);
+  padding: 12px 0;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+}
+
+.brand-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff !important;
+  letter-spacing: 0.5px;
+  transition: 0.3s ease;
+}
+
+.brand-title:hover {
+  color: #38bdf8 !important;
+}
+
+/* Navbar buttons spacing */
+.navbar .btn {
+  margin-left: 6px;
+  border-radius: 20px;
+  font-size: 13px;
+  padding: 6px 12px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effects */
+.navbar .btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #111827;
+  transform: translateY(-1px);
+}
+
+.navbar .btn-success:hover {
+  background-color: #16a34a;
+  transform: translateY(-1px);
+}
+
+.navbar .btn-warning:hover {
+  background-color: #f59e0b;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.navbar .btn-primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+.navbar .btn-danger:hover {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* User greeting */
+.navbar .text-white {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* =========================
+ MAIN CONTENT AREA
+========================= */
+
+.content {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+/* Center card-like feel for blog content */
+.col-md-8 {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eef0f3;
+}
+
+/* =========================
+ TYPOGRAPHY
+========================= */
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+  color: #111827;
+}
+
+p {
+  line-height: 1.7;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+/* Links */
+a {
+  color: #2563eb;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* =========================
+ BUTTON ENHANCEMENTS
+========================= */
+
+.btn {
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* =========================
+ BLOG POST STYLING (optional future use)
+========================= */
+
+.post-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.post-meta {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 15px;
+}
+
+.post-content {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* =========================
+ FORMS (LOGIN / POST CREATE)
+========================= */
+
+input, textarea, select {
+  border-radius: 8px !important;
+  border: 1px solid #d1d5db !important;
+  padding: 10px !important;
+  width: 100%;
+  transition: 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  outline: none;
+}
+
+/* =========================
+ RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .navbar .container {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .navbar .ms-auto {
+      margin-top: 10px;
+      width: 100%;
+  }
+
+  .navbar .btn {
+      margin: 3px 3px;
+  }
+
+  .col-md-8 {
+      padding: 20px;
+  }
+}
+
+/* =========================
+   POST FORM PAGE
+========================= */
+
+.post-form-container {
+  max-width: 750px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.form-title {
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #111827;
+}
+
+/* Labels */
+.post-form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Inputs */
+.post-form input,
+.post-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+/* Focus effect */
+.post-form input:focus,
+.post-form textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+  outline: none;
+}
+
+/* Textarea height */
+.post-form textarea {
+  min-height: 200px;
+}
+
+/* Buttons */
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.form-actions .btn {
+  border-radius: 25px;
+  padding: 8px 18px;
+}
+
+/* =========================
+   DRAFT LIST PAGE
+========================= */
+
+.draft-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.draft-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 5px solid #f59e0b; /* orange highlight */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+
+.draft-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Header */
+.draft-header {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+/* Title */
+.draft-title a {
+  text-decoration: none;
+  color: #111827;
+  font-weight: 700;
+}
+
+.draft-title a:hover {
+  color: #2563eb;
+}
+
+/* Text preview */
+.draft-text {
+  font-size: 14px;
+  color: #4b5563;
+  margin: 10px 0;
+}
+
+/* Buttons */
+.draft-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.draft-actions .btn {
+  border-radius: 20px;
+  font-size: 13px;
+}
