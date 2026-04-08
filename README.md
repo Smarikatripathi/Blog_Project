@@ -14,6 +14,7 @@ This is a simple blog project built with Django. It allows users to create, read
 ```bash
 # Clone the repo
 git clone https://github.com/Smarikatripathi/Blog_Project.git
+cd blog_project
 cd mysite
 
 # Create virtual environment
