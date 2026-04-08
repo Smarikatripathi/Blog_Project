@@ -9,6 +9,32 @@ This is a simple blog project built with Django. It allows users to create, read
 - Responsive design
 - Admin panel
 
+  ## 📸 Screenshots
+
+### Home Page
+![Screenshot 1](1.png)
+
+### Post List Page
+![Screenshot 2](2.png)
+
+### Post Detail Page
+![Screenshot 3](3.png)
+
+### Create Post Page
+![Screenshot 4](4.png)
+
+### Edit Post Page
+![Screenshot 5](5.png)
+
+### Login Page
+![Screenshot 6](6.png)
+
+### Admin Panel
+![Screenshot 7](7.png)
+
+---
+
+
 ## 📦 Installation
 
 ```bash
